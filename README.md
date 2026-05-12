@@ -46,20 +46,5 @@ cd ~/ros2_ws && colcon build --packages-select leap_hand_rl_ros2
 ```
 
 ### Some of the outputs 
+Please refer to 'Outputs_gifs' for outputs.
 
-Here are some visual demonstrations of the trained policies and the ROS2 deployment pipeline in action:
-
-#### In-hand Reorientation training
-![Training of re-orientation](Output_gifts/rl-video-step-130000.gif)
-
-
-#### In-Hand Reorientation output
-![re-orientation output](Output_gifts/gif1.gif)
-
-
-#### Grasp and lift horizontal output
-![RViz2 Deployment](Output_gifts/Isaac-Leap-Grasp-Lift-v0_last_leap_hand_grasp_lift_ep_50_rew_-1212_8934-step-0.gif)
-
-
-#### Grasp and lift vertical training (didnt converge)
-![RViz2 Deployment](Output_gifts/rl-video-step-48000.gif)
