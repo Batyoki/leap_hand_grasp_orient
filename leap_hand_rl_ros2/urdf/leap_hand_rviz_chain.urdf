@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<!-- Minimal kinematic chain for RViz: joint names match Isaac task actuated_joint_names (a_0..a_15). -->
+<!-- Replace with meshes from leap-hand/LEAP_Hand_Sim if you need accurate geometry. -->
+<robot name="leap_hand_rviz">
+  <link name="world"/>
+  <link name="base_link">
+    <visual><geometry><box size="0.04 0.08 0.02"/></geometry></visual>
+  </link>
+  <joint name="world_to_base" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Sequential chain for TF; purely for motion debugging (not anatomically exact). -->
+  <joint name="a_0" type="revolute">
+    <parent link="base_link"/>
+    <child link="link_0"/>
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14" upper="3.14" effort="1" velocity="10"/>
+  </joint>
+  <link name="link_0"/>
+
+  <joint name="a_1" type="revolute">
+    <parent link="link_0"/>
+    <child link="link_1"/>
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14" upper="3.14" effort="1" velocity="10"/>
+  </joint>
+  <link name="link_1"/>
+
+  <joint name="a_2" type="revolute">
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14" upper="3.14" effort="1" velocity="10"/>
+  </joint>
+  <link name="link_2"/>
+
+  <joint name="a_3" type="revolute">
+    <parent link="link_2"/>
+    <child link="link_3"/>
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14" upper="3.14" effort="1" velocity="10"/>
+  </joint>
+  <link name="link_3"/>
+
+  <joint name="a_4" type="revolute">
+    <parent link="link_3"/>
+    <child link="link_4"/>
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14" upper="3.14" effort="1" velocity="10"/>
+  </joint>
+  <link name="link_4"/>
+
+  <joint name="a_5" type="revolute">
+    <parent link="link_4"/>
+    <child link="link_5"/>
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14" upper="3.14" effort="1" velocity="10"/>
+  </joint>
+  <link name="link_5"/>
+
+  <joint name="a_6" type="revolute">
+    <parent link="link_5"/>
+    <child link="link_6"/>
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14" upper="3.14" effort="1" velocity="10"/>
+  </joint>
+  <link name="link_6"/>
+
+  <joint name="a_7" type="revolute">
+    <parent link="link_6"/>
+    <child link="link_7"/>
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14" upper="3.14" effort="1" velocity="10"/>
+  </joint>
+  <link name="link_7"/>
+
+  <joint name="a_8" type="revolute">
+    <parent link="link_7"/>
+    <child link="link_8"/>
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14" upper="3.14" effort="1" velocity="10"/>
+  </joint>
+  <link name="link_8"/>
+
+  <joint name="a_9" type="revolute">
+    <parent link="link_8"/>
+    <child link="link_9"/>
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14" upper="3.14" effort="1" velocity="10"/>
+  </joint>
+  <link name="link_9"/>
+
+  <joint name="a_10" type="revolute">
+    <parent link="link_9"/>
+    <child link="link_10"/>
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14" upper="3.14" effort="1" velocity="10"/>
+  </joint>
+  <link name="link_10"/>
+
+  <joint name="a_11" type="revolute">
+    <parent link="link_10"/>
+    <child link="link_11"/>
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14" upper="3.14" effort="1" velocity="10"/>
+  </joint>
+  <link name="link_11"/>
+
+  <joint name="a_12" type="revolute">
+    <parent link="link_11"/>
+    <child link="link_12"/>
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14" upper="3.14" effort="1" velocity="10"/>
+  </joint>
+  <link name="link_12"/>
+
+  <joint name="a_13" type="revolute">
+    <parent link="link_12"/>
+    <child link="link_13"/>
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14" upper="3.14" effort="1" velocity="10"/>
+  </joint>
+  <link name="link_13"/>
+
+  <joint name="a_14" type="revolute">
+    <parent link="link_13"/>
+    <child link="link_14"/>
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14" upper="3.14" effort="1" velocity="10"/>
+  </joint>
+  <link name="link_14"/>
+
+  <joint name="a_15" type="revolute">
+    <parent link="link_14"/>
+    <child link="link_15"/>
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14" upper="3.14" effort="1" velocity="10"/>
+  </joint>
+  <link name="link_15"/>
+
+</robot>
