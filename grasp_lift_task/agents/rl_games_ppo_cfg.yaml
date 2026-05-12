@@ -1,0 +1,92 @@
+params:
+  seed: 42
+
+  env:
+    clip_observations: 5.0
+    clip_actions: 1.0
+
+  algo:
+    name: a2c_continuous
+
+  model:
+    name: continuous_a2c_logstd
+
+  network:
+    name: actor_critic
+    separate: False
+    space:
+      continuous:
+        mu_activation: None
+        sigma_activation: softplus
+        mu_init:
+          name: default
+        sigma_init:
+          name: const_initializer
+          val: 0.3
+        fixed_sigma: False
+    mlp:
+      units: [512, 256, 128]
+      activation: elu
+      d2rl: False
+      initializer:
+        name: default
+      regularizer:
+        name: None
+
+  load_checkpoint: False
+  load_path: ''
+
+  config:
+    name: leap_hand_grasp_lift
+    env_name: rlgpu
+    device: 'cuda:0'
+    device_name: 'cuda:0'
+    multi_gpu: False
+    ppo: True
+    # AMP can occasionally destabilize early training (NaNs -> invalid std in Normal).
+    # Disable by default for reliability; enable manually once stable.
+    mixed_precision: False
+    normalize_input: True
+    normalize_value: True
+    value_bootstrap: True
+    num_actors: -1  # set by trainer from num_envs
+
+    reward_shaper:
+      scale_value: 1.0
+
+    normalize_advantage: True
+    gamma: 0.99
+    tau: 0.95
+
+    # A100-friendly defaults for 1024 envs.
+    learning_rate: 3e-4
+    lr_schedule: adaptive
+    schedule_type: standard
+    kl_threshold: 0.02
+
+    max_epochs: 8000
+    save_best_after: 20
+    save_frequency: 50
+    print_stats: True
+
+    grad_norm: 1.0
+    entropy_coef: 0.0
+    truncate_grads: True
+    e_clip: 0.2
+    clip_value: True
+    critic_coef: 4
+    bounds_loss_coef: 0.0001
+
+    # Rollout + batch sizing for variable env counts:
+    # batch_size = num_envs * horizon_length
+    horizon_length: 64
+    # 256 envs -> 16384; 512 envs -> 32768; 1024 envs -> 65536
+    # Keep minibatch_size <= batch_size and divisible.
+    minibatch_size: 16384
+    mini_epochs: 4
+
+    player:
+      deterministic: True
+      games_num: 100000
+      print_stats: True
+
